@@ -1,0 +1,47 @@
+@mixin reset {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+@mixin clearfix{
+	content: "";
+	display: table;
+	clear: both;
+}
+
+@mixin  budget-text {
+	color: $gray-dark;
+	font-weight: 500;
+}
+
+@mixin  border-none {
+	border: none;
+	outline: none;
+	background-clip: padding-box;
+	transition: 300ms all linear;
+}
+
+@mixin flex-space($justify:flex-start) {
+	display: flex;
+	justify-content: $justify;
+	align-items: center;
+}
+
+@mixin style-container($color) {
+	color: $color;
+	text-align: center;
+	position: relative;
+
+	&::before {
+		content: '';
+		position: absolute;
+		display: block;
+		width: 25rem;
+		height: 1.6px;
+		background: #ddd;
+		bottom: 1.8px;
+		left: calc(50%);
+		transform: translateX(-50%);
+	}
+}

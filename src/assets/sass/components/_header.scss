@@ -1,0 +1,90 @@
+/*********************
+Header
+***********************/
+.header {
+	@include flex-space(center);
+	flex-flow: column nowrap;
+	width: 100%;
+	background: url(../img/intro-bg.png) center bottom no-repeat;
+	background-size: cover;
+	padding: 1rem 0 3rem 0;
+	overflow: hidden;
+	position: relative;
+
+	* {
+		color: $light;
+		text-align: center;
+	}
+
+	.container {
+		height: 100%;
+		width: 105%;
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.budget_items_container {
+		@include flex-space(space-around);
+		flex-flow: row wrap;
+		margin: 1.2rem 0 2rem;
+		height: 100%;
+		width: 50%;
+	}
+
+	.budget_title h1,
+	.budget_value {
+		text-transform: capitalize;
+		font-size: 1.8rem;
+		font-weight: 300;
+		letter-spacing: 2px;
+	}
+
+	.budget_value {
+		font-size: 2.6rem;
+		margin: 0.7rem 0;
+	}
+
+	.viewer {
+		@include flex-space(space-around);
+		width: 70%;
+		height: 2.6rem;
+		margin: 0.45rem;
+		padding: 0 0.2rem;
+		box-shadow: 0 0 26px rgba(0, 0, 0, 0.349);
+		background: $light !important;
+		opacity: 0.975;
+
+		.right {
+			@include flex-space(space-around);
+			width: 50%;
+			transform: translateX(0.8rem);
+		}
+
+	}
+
+	.budget_income-text,
+	.budget_expenses-text {
+		@include budget-text;
+		text-transform: uppercase;
+	}
+
+	.budget_income-value,
+	.budget_expenses-value {
+		@include budget-text;
+	}
+
+	.budget_expenses-percentage {
+		color: $white !important;
+	}
+
+	.err_msg,
+	.err_msg_mobile {
+		color: $danger;
+		text-align: center;
+		margin: 0 0;
+		font-style: italic;
+	}
+
+}

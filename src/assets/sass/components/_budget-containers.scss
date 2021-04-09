@@ -1,0 +1,49 @@
+.container {
+
+	@include flex-space(space-around);
+	width: 80%;
+	margin: 1.94rem auto;
+
+	>* {
+		width: 48%;
+	}
+
+	h2 {
+		text-transform: uppercase;
+		font-size: 1.2rem;
+		font-weight: 500;
+		margin-bottom: 0.3rem;
+		padding: 0 0.4rem 0.4rem 0;
+	}
+
+	.income {
+		.income_title {
+			@include style-container($teal);
+		}
+
+		.item {
+			border-left: 1.8px solid $green;
+		}
+	}
+
+	.expenses {
+		.expenses_title {
+			@include style-container($danger);
+		}
+
+		.item {
+			border-left: 1.8px solid $red;
+		}
+	}
+
+	@media screen and (min-width: 600px) {
+
+		@include flex-space(space-around);
+		flex-flow: column nowrap;
+		width: 90%;
+
+		>* {
+			width: 49%;
+		}
+	}
+}

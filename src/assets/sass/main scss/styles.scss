@@ -1,0 +1,75 @@
+@import "../varables.scss";
+@import "../mixins.scss";
+
+*,
+*::before,
+*::after {
+	@include reset;
+}
+
+body,
+#root {
+	color: $gray-dark;
+	font-family: -apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		'Roboto',
+		'Oxygen',
+		'Franklin Gothic Medium',
+		'Arial Narrow',
+		Arial,
+		'Ubuntu',
+		'Cantarell',
+		'Fira Sans',
+		'Droid Sans',
+		'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 16px;
+	// height: 100vh;
+	width: 100vw;
+	font-weight: 400;
+}
+
+.clearfix {
+	&::after {
+		@include clearfix;
+	}
+}
+
+input,
+button,
+select {
+	@include border-none;
+}
+
+select,
+button {
+	cursor: pointer;
+}
+
+.green i {
+	color: $teal;
+}
+
+.green-focus:focus {
+	border: 1.4px solid $teal !important;
+	background: none !important;
+}
+
+.red i {
+	color: $danger !important;
+}
+
+.red-focus:focus {
+	border: 1.2px solid $danger !important;
+	background: none !important;
+}
+
+@import "../components/header.scss";
+@import "../components/form";
+@import "../components/main.scss";
+
+@import "../components/budget-containers";
+@import "../components/budget-items";
