@@ -16,7 +16,7 @@ export const GetBudget = () => {
 	totals.expenses = GetTotals('expenses');
 	//Calculate the budget: income - expeses
 	budget = totals.income - totals.expenses;
-	return { budget };
+	return  budget ;
 }
 
 export const GetPercentage = () => {
@@ -24,5 +24,5 @@ export const GetPercentage = () => {
 	//calculate the total percentage of the income spent on expenses
 	if (totals.income > 0) percentage = Math.round((totals.expenses / totals.income) * 100);
 	else percentage = -1;
-	return { percentage };
+	return percentage ;
 }

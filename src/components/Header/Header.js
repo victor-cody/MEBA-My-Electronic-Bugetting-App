@@ -15,7 +15,7 @@ const Header = () => {
 					<h1> Available Funds for , <span className="budget_title_month">%Month%</span></h1>
 				</div>
 				{/* total budget balance */}
-				<Budget balance={GetBudget().budget} />
+				<Budget balance={GetBudget()} />
 				{/* Total Income and expenses field container */}
 				<BudgetTotal />
 				<p className="err_msg"></p>

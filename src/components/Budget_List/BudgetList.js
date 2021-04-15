@@ -20,6 +20,7 @@ const BudgetList = ({ category }) => {
 
 					<BudgetItem
 						key={id}
+						
 						id={transaction.id}
 						description={transaction.description}
 						value={transaction.value}
