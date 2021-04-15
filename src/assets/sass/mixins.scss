@@ -44,4 +44,12 @@
 		left: calc(50%);
 		transform: translateX(-50%);
 	}
+
+	@media screen and (max-width:600px){
+		&::before {
+			width: 25rem;
+			bottom: 1.2px;
+			left: calc(40%);
+		}
+	}
 }

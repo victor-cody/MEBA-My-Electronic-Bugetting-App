@@ -7,7 +7,7 @@ Header
 	width: 100%;
 	background: url(../img/intro-bg.png) center bottom no-repeat;
 	background-size: cover;
-	padding: 1rem 0 3rem 0;
+	padding: .5rem 0 3rem 0;
 	overflow: hidden;
 	position: relative;
 
@@ -31,6 +31,13 @@ Header
 		margin: 1.2rem 0 2rem;
 		height: 100%;
 		width: 50%;
+		@media screen and (max-width:680px) {
+			width:68%;
+		}
+
+		@media screen and (max-width:480px) {
+			width: 80%
+		}
 	}
 
 	.budget_title h1,
@@ -48,7 +55,7 @@ Header
 
 	.viewer {
 		@include flex-space(space-around);
-		width: 70%;
+		width: 80%;
 		height: 2.6rem;
 		margin: 0.45rem;
 		padding: 0 0.2rem;
@@ -58,8 +65,12 @@ Header
 
 		.right {
 			@include flex-space(space-around);
-			width: 50%;
+			min-width: 50%;
 			transform: translateX(0.8rem);
+		}
+
+		@media screen and (max-width:500px) {
+			width:90%
 		}
 
 	}
@@ -76,7 +87,7 @@ Header
 	}
 
 	.budget_expenses-percentage {
-		color: $white !important;
+		@include budget-text;
 	}
 
 	.err_msg,

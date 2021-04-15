@@ -1,11 +1,11 @@
 .container {
 
-	@include flex-space(space-around);
-	width: 80%;
+	@include flex-space(space-between);
+	width: 84%;
 	margin: 1.94rem auto;
 
 	>* {
-		width: 48%;
+		width: 45%;
 	}
 
 	h2 {
@@ -22,7 +22,7 @@
 		}
 
 		.item {
-			border-left: 1.8px solid $green;
+			border-left: 2.8px solid $green;
 		}
 	}
 
@@ -32,18 +32,18 @@
 		}
 
 		.item {
-			border-left: 1.8px solid $red;
+			border-left: 2.8px solid $red;
 		}
 	}
 
-	@media screen and (min-width: 600px) {
+	@media screen and (max-width: 630px) {
 
 		@include flex-space(space-around);
 		flex-flow: column nowrap;
 		width: 90%;
 
 		>* {
-			width: 49%;
+			width: 80%;
 		}
 	}
 }

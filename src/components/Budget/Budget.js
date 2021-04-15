@@ -1,4 +1,3 @@
-import React from 'react'
 import BudgetList from '../Budget_List/BudgetList'
 
 const Budget = () => {
