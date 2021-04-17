@@ -5,7 +5,7 @@
 	justify-content: space-between;
 	align-items: center;
 	/* text-align: center; */
-	padding: 0.8rem 0.2rem;
+	padding: 0.8rem 0.3rem;
 	margin: 1rem 0 !important;
 	box-shadow: 0 1px .5rem rgba(0, 0, 0, 0.2);
 	transition: all 0.2s ease-in;
@@ -24,25 +24,40 @@
 	}
 
 	.right {
+		@include flex-space(space-between);
 		width: 42%;
-		display: flex;
-		align-items: center;
-
 
 		.item_delete {
 			width: 18%;
+			position: relative;
 			margin: 0 0.3rem;
 			text-align: center;
 			transform: scale(1);
 			transition: 250ms ease;
 
 			button {
-				background: none;
+				background: $red;
+				padding: .2rem ;
+				margin-left: .3rem;
+				transform: translateY(-5px);
+				box-shadow: 0 3px .6rem #14141432 ;
+				border-radius: 7.5px;
+				// position: absolute;
+				// top: 2%;
+				// left: 5%;
+				// width: 0%;
+				// padding: .2rem .2rem;
+				// background-color: $red;
+				// margin: 0 0.3rem;
+				// text-align: center;
+				// // transform: scale(1);
+				// transition: 250ms ease;
 			}
 
 			i {
-				color: $teal;
+				color: $light;
 				font-size: 1.4rem;
+				font-weight: 700;
 				background: transparent;
 			}
 
@@ -56,18 +71,20 @@
 .expenses-list {
 	.item {
 		.item_value {
-			width: 82%;
+			width: 80%;
 			color: $danger;
+			transform: translateX(-2rem);
 		}
 
 		.right {
-			width: 45%;
+			width: 42%;
+			transform: translateX(-2rem);
 		}
 
-		.item_delete {
-			i {
-				color: var(--danger);
-			}
-		}
+		// .item_delete {
+		// 	i {
+		// 		color: var(--danger);
+		// 	}
+		// }
 	}
 }

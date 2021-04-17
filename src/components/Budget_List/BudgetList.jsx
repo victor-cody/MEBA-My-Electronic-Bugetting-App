@@ -1,14 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext ,useState } from 'react';
 import BudgetItem from '../Budget_Item/BudgetItem';
 import { GlobalContext } from '../../contex/GlobalState'
 
 const BudgetList = ({ category }) => {
+	const [type, setType] = useState(category)
 	const isExpense = category === "expenses" ? true : false;
 	// const items = [{ name: "Coins", value: 555 }, { name: "Grossries", value: 1555 }, { name: "Coins", value: 555 }, { name: "Coins", value: 555 }, { name: "Coins", value: 855 }
 	// ];
 
 	const { transactions } = useContext(GlobalContext)
-	const transactionsList = transactions[category];
+	const transactionsList = transactions[type];
 	console.log(transactionsList);
 
 	return (
@@ -20,10 +21,7 @@ const BudgetList = ({ category }) => {
 
 					<BudgetItem
 						key={id}
-						
-						id={transaction.id}
-						description={transaction.description}
-						value={transaction.value}
+						item = {transaction}
 						isExpense={isExpense}
 					/>
 				)

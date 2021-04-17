@@ -55,7 +55,7 @@ Header
 
 	.viewer {
 		@include flex-space(space-around);
-		width: 80%;
+		width: 82%;
 		height: 2.6rem;
 		margin: 0.45rem;
 		padding: 0 0.2rem;
@@ -69,8 +69,8 @@ Header
 			transform: translateX(0.8rem);
 		}
 
-		@media screen and (max-width:500px) {
-			width:90%
+		@media screen and (max-width:600px) {
+			width:95%
 		}
 
 	}

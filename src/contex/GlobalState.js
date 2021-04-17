@@ -1,22 +1,22 @@
-import React , {createContext, useReducer} from 'react' ;
+import React, { createContext, useReducer } from 'react';
 import AppReducer from './AppReducer';
 
 //initial State
 const initialState = {
-		transactions: {
-			income:[
-				{ id: 1, description: "Salary", value: 50_000 },
-				{ id: 2, description: "Technical Writing", value: 20_000 },
-				{ id: 3, description: "AFL", value: 50_000 },
-				{ id: 4, description: "Side Hustle", value: 90_000 }
-			],
-			expenses:[
-				{ id: 1, description: "Rent", value: 40_000 },
-				{ id: 2, description: "Data", value: 20_000 },
-				{ id: 3, description: "Charity", value: 80_000 },
-				{ id: 4, description: "Gods Work", value: 50_000 },
-			]
-		},
+	transactions: {
+		income: [
+			{ id: 1, description: "Salary", value: 50_000 },
+			{ id: 2, description: "Technical Writing", value: 20_000 },
+			{ id: 3, description: "AFL", value: 50_000 },
+			{ id: 4, description: "Side Hustle", value: 90_000 }
+		],
+		expenses: [
+			{ id: 1, description: "Rent", value: 40_000 },
+			{ id: 2, description: "Data", value: 20_000 },
+			{ id: 3, description: "Charity", value: 80_000 },
+			{ id: 4, description: "Gods Work", value: 50_000 },
+		]
+	},
 	totals: {
 		income: 0,
 		expenses: 0,
@@ -31,14 +31,25 @@ console.log(initialState);
 export const GlobalContext = createContext(initialState);
 
 //Provider Component
-export const GlobalProvider = ({children}) => {
-	const [state,dispatch] = useReducer(AppReducer, initialState);
+export const GlobalProvider = ({ children }) => {
+	const [state, dispatch] = useReducer(AppReducer, initialState);
+
+	//deleting an item from the budget and the initialState
+	function deleteTransaction(transType, id) {
+		//retriving the id of each element in our array income or expeses
+		dispatch({
+			type: 'DELETE',
+			itemID:id,
+			itemType: transType
+		})
+	};
 
 	return (
 		<GlobalContext.Provider value={{
 			transactions: state.transactions,
 			totals: state.totals,
-			budget:state.budget
+			budget: state.budget,
+			deleteTransaction
 		}}>
 			{children}
 		</GlobalContext.Provider>

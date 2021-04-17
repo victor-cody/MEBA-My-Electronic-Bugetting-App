@@ -1,10 +1,11 @@
+import { formatNumber } from '../Abstracts/ViewController';
 
 const BudgetIncome = ({ totalIncome = 0 }) => {
 	return (
 		<div className="budget_income clearfix viewer">
 			<div className="budget_income-text">Total Income:</div>
 			<div className="right">
-				<div className="budget_income-value"> +${totalIncome.toFixed(2)} </div>
+				<div className="budget_income-value"> +${formatNumber(totalIncome)} </div>
 				<div className="budget_income-percentage">&nbsp;</div>
 			</div>
 		</div>

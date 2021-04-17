@@ -142,7 +142,7 @@ Header
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 80%;
+  width: 82%;
   height: 2.6rem;
   margin: 0.45rem;
   padding: 0 0.2rem;
@@ -160,10 +160,10 @@ Header
   transform: translateX(0.8rem);
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   /* line 56, ../../3D Objects/Projects workspace/React Projects/MEBA/src/assets/sass/components/_header.scss */
   .header .viewer {
-    width: 90%;
+    width: 95%;
   }
 }
 
@@ -312,13 +312,13 @@ Main
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 84%;
+  width: 90%;
   margin: 1.94rem auto;
 }
 
 /* line 7, ../../3D Objects/Projects workspace/React Projects/MEBA/src/assets/sass/components/_budget-containers.scss */
 .container > * {
-  width: 45%;
+  width: 46%;
 }
 
 /* line 11, ../../3D Objects/Projects workspace/React Projects/MEBA/src/assets/sass/components/_budget-containers.scss */
@@ -355,13 +355,13 @@ Main
   .container .income .income_title::before {
     width: 25rem;
     bottom: 1.2px;
-    left: calc(40%);
+    left: calc(48%);
   }
 }
 
 /* line 24, ../../3D Objects/Projects workspace/React Projects/MEBA/src/assets/sass/components/_budget-containers.scss */
 .container .income .item {
-  border-left: 2.8px solid #28a745;
+  border-left: 3px solid #28a745;
 }
 
 /* line 30, ../../3D Objects/Projects workspace/React Projects/MEBA/src/assets/sass/components/_budget-containers.scss */
@@ -389,13 +389,13 @@ Main
   .container .expenses .expenses_title::before {
     width: 25rem;
     bottom: 1.2px;
-    left: calc(40%);
+    left: calc(48%);
   }
 }
 
 /* line 34, ../../3D Objects/Projects workspace/React Projects/MEBA/src/assets/sass/components/_budget-containers.scss */
 .container .expenses .item {
-  border-left: 2.8px solid #dc3848;
+  border-left: 3px solid #dc3848;
 }
 
 @media screen and (max-width: 630px) {
@@ -405,11 +405,22 @@ Main
     justify-content: space-around;
     align-items: center;
     flex-flow: column nowrap;
-    width: 90%;
+    width: 94%;
   }
   /* line 45, ../../3D Objects/Projects workspace/React Projects/MEBA/src/assets/sass/components/_budget-containers.scss */
   .container > * {
-    width: 80%;
+    width: 82%;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  /* line 1, ../../3D Objects/Projects workspace/React Projects/MEBA/src/assets/sass/components/_budget-containers.scss */
+  .container {
+    width: 98%;
+  }
+  /* line 53, ../../3D Objects/Projects workspace/React Projects/MEBA/src/assets/sass/components/_budget-containers.scss */
+  .container > * {
+    width: 88%;
   }
 }
 
@@ -419,7 +430,7 @@ Main
   justify-content: space-between;
   align-items: center;
   /* text-align: center; */
-  padding: 0.8rem 0.2rem;
+  padding: 0.8rem 0.3rem;
   margin: 1rem 0 !important;
   box-shadow: 0 1px 0.5rem rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease-in;
@@ -442,46 +453,51 @@ Main
 
 /* line 26, ../../3D Objects/Projects workspace/React Projects/MEBA/src/assets/sass/components/_budget-items.scss */
 .item .right {
-  width: 42%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  width: 42%;
 }
 
-/* line 32, ../../3D Objects/Projects workspace/React Projects/MEBA/src/assets/sass/components/_budget-items.scss */
+/* line 30, ../../3D Objects/Projects workspace/React Projects/MEBA/src/assets/sass/components/_budget-items.scss */
 .item .right .item_delete {
   width: 18%;
+  position: relative;
   margin: 0 0.3rem;
   text-align: center;
   transform: scale(1);
   transition: 250ms ease;
 }
 
-/* line 39, ../../3D Objects/Projects workspace/React Projects/MEBA/src/assets/sass/components/_budget-items.scss */
+/* line 38, ../../3D Objects/Projects workspace/React Projects/MEBA/src/assets/sass/components/_budget-items.scss */
 .item .right .item_delete button {
-  background: none;
+  background: #dc3848;
+  padding: .2rem;
+  margin-left: .3rem;
+  transform: translateY(-5px);
+  box-shadow: 0 3px .6rem #14141432;
+  border-radius: 7.5px;
 }
 
-/* line 43, ../../3D Objects/Projects workspace/React Projects/MEBA/src/assets/sass/components/_budget-items.scss */
+/* line 57, ../../3D Objects/Projects workspace/React Projects/MEBA/src/assets/sass/components/_budget-items.scss */
 .item .right .item_delete i {
-  color: #22bd8e;
+  color: #f3f5f7;
   font-size: 1.4rem;
+  font-weight: 700;
   background: transparent;
 }
 
-/* line 58, ../../3D Objects/Projects workspace/React Projects/MEBA/src/assets/sass/components/_budget-items.scss */
+/* line 73, ../../3D Objects/Projects workspace/React Projects/MEBA/src/assets/sass/components/_budget-items.scss */
 .expenses-list .item .item_value {
-  width: 82%;
+  width: 80%;
   color: #dc3545;
+  transform: translateX(-2rem);
 }
 
-/* line 63, ../../3D Objects/Projects workspace/React Projects/MEBA/src/assets/sass/components/_budget-items.scss */
+/* line 79, ../../3D Objects/Projects workspace/React Projects/MEBA/src/assets/sass/components/_budget-items.scss */
 .expenses-list .item .right {
-  width: 45%;
-}
-
-/* line 68, ../../3D Objects/Projects workspace/React Projects/MEBA/src/assets/sass/components/_budget-items.scss */
-.expenses-list .item .item_delete i {
-  color: var(--danger);
+  width: 42%;
+  transform: translateX(-2rem);
 }
 
 /*# sourceMappingURL=styles.css.map */
