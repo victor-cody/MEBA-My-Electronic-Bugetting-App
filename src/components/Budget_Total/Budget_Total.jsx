@@ -1,8 +1,11 @@
+import { useContext } from 'react';
 import  BudgetIncome  from "../Budget_Income/Budget_Income";
 import  BudgetExpenses  from "../Budget_Expenses/Budget_Expenses";
-import { GetTotals, GetPercentage } from '../Abstracts/BudgetController';
+import { GlobalContext } from '../../contex/GlobalState';
 
 const BudgetTotal = () => {
+
+	const { GetTotals, GetPercentage } = useContext(GlobalContext)
 
 	return (
 		<div className="budget_items_container">
