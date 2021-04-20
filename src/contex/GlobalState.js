@@ -3,8 +3,7 @@ import AppReducer from './AppReducer';
 
 //initial State
 const initialState = {
-	transactions: {
-		income: [
+		incomes: [
 			{ id: 1, description: "Salary", value: 50_000 },
 			{ id: 2, description: "Technical Writing", value: 20_000 },
 			{ id: 3, description: "AFL", value: 50_000 },
@@ -16,7 +15,7 @@ const initialState = {
 			{ id: 3, description: "Charity", value: 80_000 },
 			{ id: 4, description: "Gods Work", value: 50_000 },
 		]
-	},
+,
 	totals: {
 		income: 0,
 		expenses: 0,
@@ -61,18 +60,18 @@ export const GlobalProvider = ({ children }) => {
 	}
 
 	//deleting an item from the budget and the initialState
-	function deleteTransaction(transType, id) {
+	function deleteTransaction(category, id) {
 		//retriving the id of each element in our array income or expeses
 		dispatch({
-			type: 'DELETE',
+			type: category,
 			itemID:id,
-			itemType: transType
 		})
 	};
 
 	return (
 		<GlobalContext.Provider value={{
-			transactions: state.transactions,
+			incomes: state.incomes,
+			expenses: state.expenses,
 			totals: state.totals,
 			budget: state.budget,
 			//DOM ACTIONS
