@@ -1,4 +1,5 @@
-import BudgetList from '../Budget_List/BudgetList'
+import IncomesList from '../Budget_List/IncomeList';
+import ExpensesList from '../Budget_List/ExpensesList';
 
 const Budget = () => {
 	return (
@@ -6,10 +7,10 @@ const Budget = () => {
 		<main className="main" id="main">
 
 			<div className="container clearfix">
-			{/* income list dialog  */}
-			<BudgetList category="income" />
-			{/* income list dialog  */}
-			<BudgetList category="expenses" />
+				{/* incomes list dialog  */}
+				<IncomesList category="income" />
+				{/* Expenses list dialog  */}
+				<ExpensesList category="expenses" />
 			</div>
 
 		</main >

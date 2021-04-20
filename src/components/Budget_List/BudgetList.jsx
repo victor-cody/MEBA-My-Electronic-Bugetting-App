@@ -1,35 +1,35 @@
-import React, { useContext ,useState } from 'react';
-import BudgetItem from '../Budget_Item/BudgetItem';
-import { GlobalContext } from '../../contex/GlobalState'
+// import React, { useContext ,useState } from 'react';
+// import BudgetItem from '../Budget_Item/BudgetItem';
+// import { GlobalContext } from '../../contex/GlobalState'
 
-const BudgetList = ({ category }) => {
-	const [type, setType] = useState(category)
-	const isExpense = category === "expenses" ? true : false;
-	// const items = [{ name: "Coins", value: 555 }, { name: "Grossries", value: 1555 }, { name: "Coins", value: 555 }, { name: "Coins", value: 555 }, { name: "Coins", value: 855 }
-	// ];
+// const BudgetList = ({ category }) => {
+// 	const [type, setType] = useState(category)
+// 	const isExpense = category === "expenses" ? true : false;
+// 	// const items = [{ name: "Coins", value: 555 }, { name: "Grossries", value: 1555 }, { name: "Coins", value: 555 }, { name: "Coins", value: 555 }, { name: "Coins", value: 855 }
+// 	// ];
 
-	const { transactions } = useContext(GlobalContext)
-	const transactionsList = transactions[type];
-	console.log(transactionsList);
+// 	const { transactions } = useContext(GlobalContext)
+// 	const transactionsList = transactions[type];
+// 	console.log(transactionsList);
 
-	return (
-		<div className={category}>
-			<h2 className={`${category}_title`}>{category} History</h2>
+// 	return (
+// 		<div className={category}>
+// 			<h2 className={`${category}_title`}>{category} History</h2>
 
-			<ul className={`${category}-list`} id={`${category}-list`}>
-				{transactionsList.map((transaction, id) => (
+// 			<ul className={`${category}-list`} id={`${category}-list`}>
+// 				{transactionsList.map((transaction, id) => (
 
-					<BudgetItem
-						key={id}
-						item = {transaction}
-						isExpense={isExpense}
-					/>
-				)
-				)}
-			</ul>
+// 					<BudgetItem
+// 						key={id}
+// 						item = {transaction}
+// 						isExpense={isExpense}
+// 					/>
+// 				)
+// 				)}
+// 			</ul>
 
-		</div >
-	);
-};
+// 		</div >
+// 	);
+// };
 
-export default BudgetList;
+// export default BudgetList;

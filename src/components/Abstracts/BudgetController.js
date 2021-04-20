@@ -1,19 +1,26 @@
 import { useContext } from 'react';
 import { GlobalContext } from '../../contex/GlobalState';
 
-//Function to calculate the total of either expenses or income
-export const GetTotals = (type) => {
-	const { transactions, totals } = useContext(GlobalContext);
-	totals[type] = transactions[type].reduce((init, data) => init + data.value, 0)
-	return totals[type];
+// Function to calculate the total income.
+export const GetTotalIncome = () => {
+	const {  totals , incomes } = useContext(GlobalContext);
+	totals.income = incomes.reduce((init, data) => init + data.value, 0)
+	return totals.income;
+}
+
+// Function to calculate the total expenses.
+export const GetTotalExpense = () => {
+	const { totals, expenses } = useContext(GlobalContext);
+	totals.expenses = expenses.reduce((init, data) => init + data.value, 0)
+	return totals.expenses;
 }
 
 //our function to calculate the Budget
 export const GetBudget = () => {
 	let { budget, totals } = useContext(GlobalContext);
 	//calculate the total expenses and income
-	totals.income = GetTotals('income');
-	totals.expenses = GetTotals('expenses');
+	totals.income = GetTotalIncome();
+	totals.expenses = GetTotalExpense();
 	//Calculate the budget: income - expeses
 	budget = totals.income - totals.expenses;
 	return budget;

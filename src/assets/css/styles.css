@@ -421,6 +421,7 @@ Main
   /* line 53, ../../3D Objects/Projects workspace/React Projects/MEBA/src/assets/sass/components/_budget-containers.scss */
   .container > * {
     width: 88%;
+    margin: 1.2rem 0;
   }
 }
 

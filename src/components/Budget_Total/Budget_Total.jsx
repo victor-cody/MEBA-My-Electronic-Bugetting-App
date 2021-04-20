@@ -1,16 +1,16 @@
 import  BudgetIncome  from "../Budget_Income/Budget_Income";
 import  BudgetExpenses  from "../Budget_Expenses/Budget_Expenses";
-import { GetTotals, GetPercentage } from '../Abstracts/BudgetController';
+import {  GetPercentage, GetTotalIncome, GetTotalExpense } from '../Abstracts/BudgetController';
 
 const BudgetTotal = () => {
 
 	return (
 		<div className="budget_items_container">
 			{/* budget income */}
-			<BudgetIncome totalIncome={GetTotals('income')} />
+			<BudgetIncome totalIncome={GetTotalIncome()} />
 			{/* budget Expenses */}
 			<BudgetExpenses
-				totalExpenses={GetTotals('expenses')}
+				totalExpenses={GetTotalExpense()}
 				expensesPercentage={GetPercentage()}
 			/>
 		</div>

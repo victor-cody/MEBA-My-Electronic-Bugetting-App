@@ -4,6 +4,8 @@ import { formatNumber } from '../Abstracts/ViewController';
 
 const BudgetItem = ({ item: { description, value, id, }, isExpense }) => {
 
+	const DISPATCH = isExpense ? 'DELETE_EXPENSES' : 'DELETE_INCOME';
+
 	const { deleteTransaction } = useContext(GlobalContext);
 	const isExpPercent = isExpense &&
 		<div className="item_percentage" style={{
@@ -12,7 +14,7 @@ const BudgetItem = ({ item: { description, value, id, }, isExpense }) => {
 		}}>
 			21%
 	</div>;
-	const type = isExpense ? 'expense' : 'income' ;
+	
 	return (
 		<div className="item clearfix" id={isExpense ? `expense-${id}` : `income-${id}`}>
 			<div className="item_description">{description}</div>
@@ -23,7 +25,7 @@ const BudgetItem = ({ item: { description, value, id, }, isExpense }) => {
 				{isExpPercent}
 				<div className="item_delete">
 					<button
-						onClick={() => deleteTransaction(type, id)}
+						onClick={() => deleteTransaction(DISPATCH, id)}
 						className="item_delete-btn"
 						title="delete item">
 						<i className="ion-ios-close-outline"></i>
