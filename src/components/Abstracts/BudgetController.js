@@ -29,7 +29,7 @@ export const GetBudget = () => {
 export const GetPercentage = () => {
 	let { totals, percentage } = useContext(GlobalContext);
 	//calculate the total percentage of the income spent on expenses
-	if (totals.income > 0) percentage = Math.round((totals.expenses / totals.income) * 100);
+	if (totals.income > 0) percentage = Math.floor((totals.expenses / totals.income) * 100);
 	else percentage = -1;
 	return percentage;
 }
@@ -38,8 +38,9 @@ export const CalcPercentages = () => {
 	let { expenses, totals, percentages } = useContext(GlobalContext)
 	
 		percentages = expenses.map(expense => {
-			let value = Math.round((expense.value / totals.income) * 100);
+			let value = Math.floor((expense.value / totals.income) * 100);
 			return value
 		});
+		console.log(percentages);
 		return percentages;
 	}

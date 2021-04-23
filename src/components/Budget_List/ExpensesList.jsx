@@ -6,7 +6,9 @@ const ExpensesList = ({ category }) => {
 	const isExpense = category === "expenses" ? true : false;
 
 	const { expenses } = useContext(GlobalContext)
+	// const [isPending, setIsPending] = useState(expenses.length)
 	console.log(expenses);
+
 
 	return (
 		<div className={category}>
@@ -16,7 +18,7 @@ const ExpensesList = ({ category }) => {
 				{expenses.map((transaction, id) => (
 						<BudgetItem
 							key={id}
-							item={transaction}
+						item={transaction}
 							isExpense={isExpense}
 						/>
 				)

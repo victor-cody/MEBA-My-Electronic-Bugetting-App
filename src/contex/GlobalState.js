@@ -3,25 +3,25 @@ import AppReducer from './AppReducer';
 
 //initial State
 const initialState = {
-	incomes: [
-		// { id: 1, description: "Salary", value: 50_000 },
-		// { id: 2, description: "Technical Writing", value: 20_000 },
-		// { id: 3, description: "AFL", value: 50_000 },
-		// { id: 4, description: "Side Hustle", value: 90_000 }
-	],
-	expenses: [
-		// { id: 1, description: "Rent", value: 40_000 },
-		// { id: 2, description: "Data", value: 20_000 },
-		// { id: 3, description: "Charity", value: 80_000 },
-		// { id: 4, description: "Gods Work", value: 50_000 },
-	]
-	,
+		incomes: [
+			// { id: 0, description: "Salary", value: 50_000 },
+			// { id: 1, description: "Technical Writing", value: 20_000 },
+			// { id: 2, description: "AFL", value: 50_000 },
+			// { id: 3, description: "Side Hustle", value: 90_000 }
+		],
+		expenses: [
+			// { id: 0, description: "Rent", value: 40_000 },
+			// { id: 1, description: "Data", value: 20_000 },
+			// { id: 2, description: "Charity", value: 80_000 },
+			// { id: 3, description: "Gods Work", value: 50_000 },
+		]
+,
 	totals: {
 		income: 0,
 		expenses: 0,
 	},
 	budget: 0,
-	percentages:[],
+	percentages: [],
 	percentage: -1,
 }
 
@@ -34,16 +34,7 @@ export const GlobalContext = createContext(initialState);
 export const GlobalProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(AppReducer, initialState);
 
-//ACTIONS
-
-	// calcPercentages() {
-	// 	let percentage = DataStructure.allItem.exp.map(exp => {
-	// 		let value = Math.round((exp.value / DataStructure.totals.inc) * 100);
-	// 		return value
-	// 	});
-	// 	DataStructure.percentages = percentage;
-	// }
-
+	//Function to calculate the total of either expenses or income
 	function addTransaction(category, transaction) {
 		dispatch({
 			type: category,
@@ -55,10 +46,9 @@ export const GlobalProvider = ({ children }) => {
 		//retriving the id of each element in our array income or expeses
 		dispatch({
 			type: category,
-			itemID: id,
+			itemID:id,
 		})
 	};
-
 
 	return (
 		<GlobalContext.Provider value={{

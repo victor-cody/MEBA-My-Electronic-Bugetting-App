@@ -1,4 +1,4 @@
-import React, { useContext , useState } from 'react';
+import React, { useContext, useState } from 'react';
 
 import BudgetType from './BudgetType';
 import InputFields from "./InputsFields";
@@ -37,7 +37,7 @@ const BudgetForm = () => {
 			this.value = value;
 		}
 	}
-
+	
 	class Expense {
 		constructor(id, description, value) {
 			this.id = id;
@@ -73,9 +73,9 @@ const BudgetForm = () => {
 				}
 
 				DISPATCH = 'ADD_EXPENSES';
-				NEWITEM = new 
-				Expense(ID, description, parseFloat(amount));
-				
+				NEWITEM = new
+					Expense(ID, description, parseFloat(amount));
+
 				addTransaction(DISPATCH, NEWITEM)
 
 				break;
@@ -84,30 +84,30 @@ const BudgetForm = () => {
 				break;
 		}
 
-		updateField('des','')
-		updateField('val','')
+		updateField('des', '')
+		updateField('val', '')
 
 	}
 
 	return (
 		<aside className="add">
-			<form action="#" className={`add_field incomes-focus`} autoComplete="on"
+			<form action="#" className='add_field incomes-focus 'autoComplete="on"
 				onSubmit={addNewItem}
 			>
 
 				{/* add type field */}
 
-				<BudgetType type={type} 
-				updateValue={setType}  />
+				<BudgetType type={type}
+					updateValue={updateField} />
 
 				{/* input fields component */}
-				
+
 				<InputFields
 					description={description}
 					amount={amount}
-					updateValue = {updateField}
+					updateValue={updateField}
 				/>
-				
+
 				{/*submit button  */}
 				<button className="add_btn green" id="add_btn" title="add new budget entry" onClick={addNewItem}>
 					<i className="ion-android-checkmark-circle"></i>

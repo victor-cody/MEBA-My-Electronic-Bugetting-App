@@ -4,9 +4,7 @@ const BudgetType = ({ type, updateValue }) => {
 		<div className="add_container">
 			<select name="add_type" id="add_type" className=" green-focus" title=" select type"
 				value={type}
-				onChange={(e) =>
-					updateValue('type', e.target.value)
-				}
+				onChange={(e) => updateValue('type', e.target.value)}
 			>
 				<option
 					style={{ color: 'var(--green)' }}

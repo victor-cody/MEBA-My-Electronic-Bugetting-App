@@ -7,11 +7,30 @@ import { GetBudget } from '../Abstracts/BudgetController';
 
 const Header = () => {
 
+	//Displays the current month and year
+	const displayTime = () => {
+		let date = new Date();
+		const months = ['January', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+		let month = date.getMonth();
+		return (
+		<>
+			<span>
+				{months[month]}
+			</span> of <span>
+				 {date.getFullYear()}
+			</span>
+		</>
+		);
+	};
+
 	return (
 		<header className="header">
 			<div className="container">
 				<div className="budget_title">
-					<h1> Available Funds for , <span className="budget_title_month">%Month%</span></h1>
+					<h1> Available Funds for,  
+						<span className="budget_title_month">{displayTime()}
+						</span>
+					</h1>
 				</div>
 				{/* total budget balance */}
 				<Budget balance={GetBudget()} />
