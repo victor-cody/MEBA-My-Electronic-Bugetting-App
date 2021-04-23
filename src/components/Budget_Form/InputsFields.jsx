@@ -1,22 +1,22 @@
+const InputsFields = ({ description = '', amount = 0, updateValue}) => {
 
-const InputsFields = ({ description = '', amount = '', updateValue }) => {
 	return (
 		<div className="input_fields">
 
-			<input type="text" className="add_description green-focus"
+			<input type="text" className="add_description"
 				id="add_description"
 				placeholder="Write a description"
 				aria-label="description" name="add description" required title="Write a description"
 				value={description}
-				onChange={(e) => updateValue("des", e.target.value)}
+				onChange={(e) => updateValue('des',e.target.value)}
 			/>
 
-			<input type="text" className="add_value green-focus" id="add_value"
+			<input type="number" className="add_value" id="add_value"
 				placeholder="Amount"
-				aria-label="amount" 
+				aria-label="amount"
 				title="please input value" required
 				value={amount}
-				onChange={(e) => updateValue("val", e.target.value)} />
+				onChange={(e) => updateValue('val',parseFloat(e.target.value))} />
 
 		</div>
 	);

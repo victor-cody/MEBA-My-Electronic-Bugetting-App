@@ -1,20 +1,46 @@
 .add {
-	@include flex-space(center);
-	width: 100%;
-	height: 6rem;
-	padding: .5rem;
-	align-items: center;
-	/* opacity: 0.99; */
-	background: $light !important;
-	box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.4);
-	transform: translateZ(2rem);
+@include flex-space(center);
+width: 100%;
+height: 6rem;
+padding: .5rem;
+align-items: center;
+/* opacity: 0.99; */
+background: $light !important;
+box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.4);
+transform: translateZ(2rem);
 
-	.add_field {
-		@include flex-space(space-between);
-		width: 88%;
-		height: 88%;
-		flex-flow: row nowrap;
-		align-items: center;
+.add_field {
+	@include flex-space(space-between);
+	width: 100%;
+	height: 88%;
+	flex-flow: row nowrap;
+	align-items: center;
+
+	&.incomes-focus {
+
+		input:focus {
+			border: 1.4px solid $teal !important;
+			background: none !important;
+		}
+
+		.add_btn i {
+			color: $teal;
+		}
+
+	}
+
+	&.expenses-focus {
+		input:focus {
+			border: 1.4px solid $danger !important;
+			background: none !important;
+		}
+
+		.add_btn i {
+			color: $danger;
+		}
+	}
+
+
 
 		* {
 			// background: $white;
@@ -29,7 +55,7 @@
 			#add_type {
 				width: 100%;
 				height: 100%;
-				font-size: 1.1rem;
+				font-size: .98rem;
 				color: $gray-dark;
 				background: transparent !important;
 
@@ -79,11 +105,24 @@
 			height: 100%;
 			text-align: center;
 			cursor: pointer;
+
+
+			i {
+				font-size: 1.8rem;
+				transition: ease 280ms;
+			}
 		}
 
-		.add_btn i {
-			font-size: 1.8rem;
-			transition: ease 280ms;
+		@media screen and (max-width:700px) {
+			width: 96%;
+		}
+
+		@media screen and (max-width:620px) {
+			width: 94%;
+
+			#add_type {
+				font-size: .7rem;
+			}
 		}
 	}
 

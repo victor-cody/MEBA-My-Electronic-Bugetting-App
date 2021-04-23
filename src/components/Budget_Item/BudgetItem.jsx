@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { GlobalContext } from '../../contex/GlobalState';
+// import { CalcPercentages } from '../Abstracts/BudgetController';
 import { formatNumber } from '../Abstracts/ViewController';
 
 const BudgetItem = ({ item: { description, value, id, }, isExpense }) => {
@@ -12,7 +13,7 @@ const BudgetItem = ({ item: { description, value, id, }, isExpense }) => {
 			margin: '0 .2rem',
 			transform: ' translateX(-1rem)'
 		}}>
-			21%
+		{/* {CalcPercentages()[id]}% */}
 	</div>;
 	
 	return (

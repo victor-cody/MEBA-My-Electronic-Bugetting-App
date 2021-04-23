@@ -33,3 +33,13 @@ export const GetPercentage = () => {
 	else percentage = -1;
 	return percentage;
 }
+
+export const CalcPercentages = () => {
+	let { expenses, totals, percentages } = useContext(GlobalContext)
+	
+		percentages = expenses.map(expense => {
+			let value = Math.round((expense.value / totals.income) * 100);
+			return value
+		});
+		return percentages;
+	}

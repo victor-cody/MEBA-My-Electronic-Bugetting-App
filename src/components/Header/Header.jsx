@@ -3,20 +3,9 @@ import React from 'react';
 import Budget from '../Budget_Balance/Balance';
 import BudgetTotal from '../Budget_Total/Budget_Total';
 import BudgetForm from '../Budget_Form/BudgetForm';
-import { GlobalContext } from '../../contex/GlobalState';
-
-
-//Function to calculate the total of either expenses or income
-export const GetTotals = (type) => {
-	const { transactions, totals } = useContext(GlobalContext);
-	totals[type] = transactions[type].reduce((init, data) => init + data.value, 0)
-	return totals[type];
-};
-
+import { GetBudget } from '../Abstracts/BudgetController';
 
 const Header = () => {
-
-	const { GetBudget } = useContext(GlobalContext)
 
 	return (
 		<header className="header">

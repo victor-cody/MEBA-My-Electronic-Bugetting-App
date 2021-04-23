@@ -1,26 +1,27 @@
-import React, { createContext, useReducer , useContext} from 'react';
+import React, { createContext, useReducer } from 'react';
 import AppReducer from './AppReducer';
 
 //initial State
 const initialState = {
-		incomes: [
-			{ id: 1, description: "Salary", value: 50_000 },
-			{ id: 2, description: "Technical Writing", value: 20_000 },
-			{ id: 3, description: "AFL", value: 50_000 },
-			{ id: 4, description: "Side Hustle", value: 90_000 }
-		],
-		expenses: [
-			{ id: 1, description: "Rent", value: 40_000 },
-			{ id: 2, description: "Data", value: 20_000 },
-			{ id: 3, description: "Charity", value: 80_000 },
-			{ id: 4, description: "Gods Work", value: 50_000 },
-		]
-,
+	incomes: [
+		// { id: 1, description: "Salary", value: 50_000 },
+		// { id: 2, description: "Technical Writing", value: 20_000 },
+		// { id: 3, description: "AFL", value: 50_000 },
+		// { id: 4, description: "Side Hustle", value: 90_000 }
+	],
+	expenses: [
+		// { id: 1, description: "Rent", value: 40_000 },
+		// { id: 2, description: "Data", value: 20_000 },
+		// { id: 3, description: "Charity", value: 80_000 },
+		// { id: 4, description: "Gods Work", value: 50_000 },
+	]
+	,
 	totals: {
 		income: 0,
 		expenses: 0,
 	},
 	budget: 0,
+	percentages:[],
 	percentage: -1,
 }
 
@@ -33,40 +34,31 @@ export const GlobalContext = createContext(initialState);
 export const GlobalProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(AppReducer, initialState);
 
-	//Function to calculate the total of either expenses or income
-	 const GetTotals = (type) => {
-		const { transactions, totals } = useContext(GlobalContext);
-		totals[type] = transactions[type].reduce((init, data) => init + data.value, 0)
-		return totals[type];
-	}
+//ACTIONS
 
-	//our function to calculate the Budget
-	 const GetBudget = () => {
-		let { budget, totals } = useContext(GlobalContext);
-		//calculate the total expenses and income
-		totals.income = GetTotals('income');
-		totals.expenses = GetTotals('expenses');
-		//Calculate the budget: income - expeses
-		budget = totals.income - totals.expenses;
-		return budget;
-	}
+	// calcPercentages() {
+	// 	let percentage = DataStructure.allItem.exp.map(exp => {
+	// 		let value = Math.round((exp.value / DataStructure.totals.inc) * 100);
+	// 		return value
+	// 	});
+	// 	DataStructure.percentages = percentage;
+	// }
 
-	 const GetPercentage = () => {
-		let { totals, percentage } = useContext(GlobalContext);
-		//calculate the total percentage of the income spent on expenses
-		if (totals.income > 0) percentage = Math.round((totals.expenses / totals.income) * 100);
-		else percentage = -1;
-		return percentage;
-	}
-
+	function addTransaction(category, transaction) {
+		dispatch({
+			type: category,
+			newItem: transaction
+		})
+	};
 	//deleting an item from the budget and the initialState
 	function deleteTransaction(category, id) {
 		//retriving the id of each element in our array income or expeses
 		dispatch({
 			type: category,
-			itemID:id,
+			itemID: id,
 		})
 	};
+
 
 	return (
 		<GlobalContext.Provider value={{
@@ -74,12 +66,9 @@ export const GlobalProvider = ({ children }) => {
 			expenses: state.expenses,
 			totals: state.totals,
 			budget: state.budget,
-			//DOM ACTIONS
-			GetBudget,
-			GetTotals,
-			GetPercentage,
 			// STATE ACTIONS
-			deleteTransaction
+			deleteTransaction,
+			addTransaction
 		}}>
 			{children}
 		</GlobalContext.Provider>

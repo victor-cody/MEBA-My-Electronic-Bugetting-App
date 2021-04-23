@@ -14,7 +14,22 @@ export default function AppReducer (state,action)  {
 				...state,
 				incomes: state.incomes.filter(item => item.id !== action.itemID)
 			}
-	
+
+		case 'ADD_INCOME':
+			console.log(action.newItem);
+			return {
+				...state,
+				incomes:[action.newItem, ...state.incomes]
+			}
+
+		case 'ADD_EXPENSES':
+			console.log(action.newItem);
+			return {
+				...state,
+				expenses: [action.newItem, ...state.expenses]
+			}
+
+
 		default:
 			return state;
 	}

@@ -14,12 +14,11 @@ const ExpensesList = ({ category }) => {
 
 			<ul className={`${category}-list`} id={`${category}-list`}>
 				{expenses.map((transaction, id) => (
-
-					<BudgetItem
-						key={id}
-						item={transaction}
-						isExpense={isExpense}
-					/>
+						<BudgetItem
+							key={id}
+							item={transaction}
+							isExpense={isExpense}
+						/>
 				)
 				)}
 			</ul>

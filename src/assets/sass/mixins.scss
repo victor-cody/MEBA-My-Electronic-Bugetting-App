@@ -37,7 +37,7 @@
 		content: '';
 		position: absolute;
 		display: block;
-		width: 25rem;
+		width: 22rem;
 		height: 1.6px;
 		background: #ddd;
 		bottom: 1.8px;
@@ -45,11 +45,19 @@
 		transform: translateX(-50%);
 	}
 
+	@media screen and (max-width:780px) {
+		&::before {
+			width: 20rem;
+			bottom: 1.2px;
+			left: calc(50%);
+		}
+	}
+
 	@media screen and (max-width:600px){
 		&::before {
-			width: 25rem;
+			width: 20rem;
 			bottom: 1.2px;
-			left: calc(48%);
+			left: calc(50%);
 		}
 	}
 }
