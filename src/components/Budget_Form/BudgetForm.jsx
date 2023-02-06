@@ -53,7 +53,7 @@ const BudgetForm = () => {
 		switch (type) {
 			case 'inc':
 				if (incomes.length > 0) {
-					ID = Number((incomes[incomes.length - 1].id) + 1);
+					ID = Number((incomes[0].id) + 1);
 				} else {
 					ID = 0;
 				}
@@ -67,7 +67,7 @@ const BudgetForm = () => {
 
 			case 'exp':
 				if (expenses.length > 0) {
-					ID = Number((expenses[expenses.length - 1].id) + 1);
+					ID = Number((expenses[0].id) + 1);
 				} else {
 					ID = 0;
 				}
